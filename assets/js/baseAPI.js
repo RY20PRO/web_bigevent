@@ -13,16 +13,18 @@ $.ajaxPrefilter(function(options){
         }
     }
 
+
+    //无token强制回到login页面
     //全局统一挂载complte回调函数
     //无论成功还是失败，都会执行complete回调函数
-    options.complete = function(res){
-        //complete回调函数中可以使用res.responseJSON拿到服务器响应的数据
-        if(res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！'){
-            //强制清空token
-            localStorage.removeItem('token')
-            //强制跳转到登录页面
-            location.href = '/login.html'
-        }
-    }
+    // options.complete = function(res){
+    //     //complete回调函数中可以使用res.responseJSON拿到服务器响应的数据
+    //     if(res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！'){
+    //         //强制清空token
+    //         localStorage.removeItem('token')
+    //         //强制跳转到登录页面
+    //         location.href = '/login.html'
+    //     }
+    // }
     
 })
